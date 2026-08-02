@@ -48,7 +48,7 @@ workflows:
           xcode-project build-ipa \
             --project ios/App/App.xcodeproj \
             --scheme App \
-            --archive-xcargs "DEVELOPMENT_TEAM=PCC7BY299F CODE_SIGN_IDENTITY='Apple Distribution' PROVISIONING_PROFILE_SPECIFIER='Céilí Brisbane App Store'" \
+            --archive-xcargs "DEVELOPMENT_TEAM=PCC7BY299F CODE_SIGN_IDENTITY='Apple Distribution' PROVISIONING_PROFILE_SPECIFIER='Céilí Brisbane'" \
             --disable-xcpretty
     artifacts:
       - build/ios/ipa/*.ipa
