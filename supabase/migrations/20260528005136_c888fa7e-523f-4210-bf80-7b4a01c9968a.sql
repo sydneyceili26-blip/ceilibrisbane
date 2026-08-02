@@ -1,0 +1,1 @@
+ALTER TYPE public.listing_category ADD VALUE IF NOT EXISTS 'sports_wellness';

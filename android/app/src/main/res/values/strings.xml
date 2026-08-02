@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Brisbane Céilí</string>
+    <string name="title_activity_main">Brisbane Céilí</string>
+    <string name="package_name">com.ceilibrisbane.app</string>
+    <string name="custom_url_scheme">com.ceilibrisbane.app</string>
+</resources>

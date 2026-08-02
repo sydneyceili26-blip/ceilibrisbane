@@ -1,0 +1,61 @@
+workflows:
+  ios-release:
+    name: Brisbane Céilí – iOS Release
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    environment:
+      groups:
+        - app_store
+      vars:
+        APP_STORE_CONNECT_ISSUER_ID: "10e891a6-bffb-41bd-add3-a198ed9016b1"
+        APP_STORE_CONNECT_KEY_IDENTIFIER: "SCA5JFXA3W"
+        BUNDLE_ID: "com.ceilibrisbane.app"
+        VITE_SUPABASE_URL: "REPLACE_WITH_BRISBANE_SUPABASE_URL"
+        VITE_SUPABASE_PUBLISHABLE_KEY: "REPLACE_WITH_BRISBANE_ANON_KEY"
+      node: latest
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Install dependencies
+        script: npm ci
+      - name: Build web app
+        script: npm run build
+      - name: Capacitor sync iOS
+        script: npx cap sync ios
+      - name: Set up keychain
+        script: keychain initialize
+      - name: Add certificate to keychain
+        script: |
+          python3 -c "import os; cert=os.environ.get('DIST_CERT_P12',''); print(f'DIST_CERT_P12 length={len(cert)}, first30={repr(cert[:30])}')"
+          python3 -c "import base64,os; open('/tmp/certificate.p12','wb').write(base64.b64decode(os.environ['DIST_CERT_P12']))"
+          echo "Certificate size: $(wc -c < /tmp/certificate.p12) bytes"
+          keychain add-certificates --certificate /tmp/certificate.p12 --certificate-password "$DIST_CERT_P12_PASSWORD"
+      - name: Set up provisioning profile
+        script: |
+          PROFILES_HOME="$HOME/Library/MobileDevice/Provisioning Profiles"
+          mkdir -p "$PROFILES_HOME"
+          PROFILE_PATH="$(mktemp "$PROFILES_HOME"/$(uuidgen).mobileprovision)"
+          python3 -c "import base64,os; open('$PROFILE_PATH','wb').write(base64.b64decode(os.environ['BRISBANE_PROVISION_PROFILE']))"
+          echo "Installed profile at $PROFILE_PATH"
+      - name: Set up code signing
+        script: xcode-project use-profiles
+      - name: Increment build number
+        script: cd ios/App && agvtool next-version -all
+      - name: Resolve Swift Package dependencies
+        script: xcodebuild -resolvePackageDependencies -project ios/App/App.xcodeproj -scheme App
+      - name: Build .ipa
+        script: |
+          xcode-project build-ipa \
+            --project ios/App/App.xcodeproj \
+            --scheme App \
+            --archive-xcargs "DEVELOPMENT_TEAM=PCC7BY299F CODE_SIGN_IDENTITY='Apple Distribution' PROVISIONING_PROFILE_SPECIFIER='Céilí Brisbane App Store'" \
+            --disable-xcpretty
+    artifacts:
+      - build/ios/ipa/*.ipa
+    publishing:
+      app_store_connect:
+        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
+        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+        submit_to_testflight: true
+        submit_to_app_store: false
