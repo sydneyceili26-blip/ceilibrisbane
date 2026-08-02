@@ -10,8 +10,8 @@ workflows:
         APP_STORE_CONNECT_ISSUER_ID: "10e891a6-bffb-41bd-add3-a198ed9016b1"
         APP_STORE_CONNECT_KEY_IDENTIFIER: "SCA5JFXA3W"
         BUNDLE_ID: "com.ceilibrisbane.app"
-        VITE_SUPABASE_URL: "REPLACE_WITH_BRISBANE_SUPABASE_URL"
-        VITE_SUPABASE_PUBLISHABLE_KEY: "REPLACE_WITH_BRISBANE_ANON_KEY"
+        VITE_SUPABASE_URL: "https://gfwxxfovxslxcgpuxwix.supabase.co"
+        VITE_SUPABASE_PUBLISHABLE_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdmd3h4Zm92eHNseGNncHV4d2l4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU2NjM1OTEsImV4cCI6MjEwMTIzOTU5MX0.ia1adCFJgQlrpR3KDbAQ3AYsYESs9ym_VmYyHVux0NU"
       node: latest
       xcode: latest
       cocoapods: default
