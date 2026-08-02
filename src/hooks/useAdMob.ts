@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const isNative = typeof window !== "undefined" && window.location.protocol === "capacitor:";
-const BANNER_AD_UNIT = "REPLACE_WITH_BRISBANE_ADMOB_BANNER_UNIT";
+const BANNER_AD_UNIT = "ca-app-pub-5768325702216711/7083101446";
 
 export const useAdMob = () => {
   useEffect(() => {
