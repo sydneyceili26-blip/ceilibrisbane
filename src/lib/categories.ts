@@ -23,13 +23,13 @@ export interface CategoryMeta {
 
 export const CATEGORIES: CategoryMeta[] = [
   { key: "room", label: "Rooms available", short: "Rooms", description: "Spare rooms in shared houses & apartments", icon: Home, colorVar: "--cat-room" },
-  { key: "sublet", label: "Sublets", short: "Sublets", description: "Short-term sublets across Perth", icon: KeyRound, colorVar: "--cat-sublet" },
+  { key: "sublet", label: "Sublets", short: "Sublets", description: "Short-term sublets across Brisbane", icon: KeyRound, colorVar: "--cat-sublet" },
   { key: "lease_takeover", label: "Lease takeovers", short: "Lease takeover", description: "Take over an existing lease", icon: FileSignature, colorVar: "--cat-lease" },
   { key: "job", label: "Jobs", short: "Jobs", description: "Casual, part-time and full-time roles", icon: Briefcase, colorVar: "--cat-job" },
   { key: "for_sale", label: "Marketplace", short: "Marketplace", description: "Buy and sell furniture, appliances, and anything in between", icon: Tag, colorVar: "--cat-sale" },
   { key: "service", label: "Services", short: "Services", description: "Moving, tutoring, trades, help on offer", icon: Wrench, colorVar: "--cat-service" },
   { key: "event", label: "Events", short: "Events", description: "Events, meet ups, sessions & socials", icon: PartyPopper, colorVar: "--cat-event" },
-  { key: "car", label: "Vehicles", short: "Vehicles", description: "Cars and vehicles for sale across Perth", icon: Car, colorVar: "--cat-sale" },
+  { key: "car", label: "Vehicles", short: "Vehicles", description: "Cars and vehicles for sale across Brisbane", icon: Car, colorVar: "--cat-sale" },
   { key: "sports_wellness", label: "Sports & wellness", short: "Sports & wellness", description: "GAA clubs, gyms, classes, coaches and wellbeing", icon: HeartPulse, colorVar: "--cat-wellness" },
 ];
 
@@ -58,7 +58,7 @@ export const HOUSING_META: GroupMeta = {
   key: HOUSING_KEY,
   label: "Housing",
   short: "Housing",
-  description: "Sublets and lease takeovers across Perth",
+  description: "Sublets and lease takeovers across Brisbane",
   icon: Building2,
   colorVar: "--cat-room",
   subs: HOUSING_SUBS,

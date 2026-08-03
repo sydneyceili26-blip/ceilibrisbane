@@ -14,7 +14,7 @@ const SiteFooter = () => (
           <Link to="/terms" className="hover:text-foreground">Terms</Link>
           <Link to="/privacy" className="hover:text-foreground">Privacy</Link>
         </nav>
-        <p>A welcoming noticeboard for everyone settling into Perth - Fáilte, welcome!</p>
+        <p>A welcoming noticeboard for everyone settling into Brisbane - Fáilte, welcome!</p>
       </div>
       <p className="mt-6 text-xs text-muted-foreground/60">© {new Date().getFullYear()} Céilí Brisbane™. All rights reserved.</p>
     </div>

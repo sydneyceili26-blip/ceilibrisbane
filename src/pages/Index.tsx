@@ -35,7 +35,7 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    document.title = "Céilí Brisbane - A friendly noticeboard for Perth newcomers";
+    document.title = "Céilí Brisbane - A friendly noticeboard for Brisbane newcomers";
   }, []);
 
   useEffect(() => {
@@ -88,7 +88,7 @@ const Index = () => {
               ☘ Fáilte · Welcome
             </span>
             <h1 className="mt-5 font-display text-5xl font-bold leading-tight text-white md:text-7xl">
-              <span className="text-white">Perth, Sorted</span>
+              <span className="text-white">Brisbane, Sorted</span>
             </h1>
             <p className="mt-5 text-base text-white/80 md:text-lg">
               Céilí Brisbane is the one-stop shop for people on holiday visas, permanent residents, and citizens alike - whether you're still at home, just landed, or have been here for years. Find a gaff, find a job, find an event, and everything in between
@@ -201,7 +201,7 @@ const Index = () => {
           <div className="overflow-hidden rounded-3xl bg-gradient-hero p-8 text-primary-foreground shadow-glow md:p-12">
             <div className="grid items-center gap-6 md:grid-cols-[1fr_auto]">
               <div>
-                <h2 className="font-display text-2xl font-bold md:text-3xl">New to Perth? Pull up a chair.</h2>
+                <h2 className="font-display text-2xl font-bold md:text-3xl">New to Brisbane? Pull up a chair.</h2>
                 <p className="mt-2 max-w-xl opacity-90">
                   Whether you're hunting a room, looking for work, or just want to find your people - start here.
                 </p>

@@ -32,7 +32,7 @@ const About = () => {
             <p className="font-semibold text-foreground">So we decided to build something better.</p>
             <p>
               Céilí brings everything together in one place, making it easier, quicker, and far less
-              stressful to get yourself sorted in Perth. No more wasting time trawling through endless
+              stressful to get yourself sorted in Brisbane. No more wasting time trawling through endless
               posts — just the things you need, when you need them.
             </p>
             <p>
@@ -53,7 +53,7 @@ const About = () => {
           <div className="mt-6 rounded-2xl border border-border bg-card p-6 shadow-card">
             <p className="font-display text-lg font-semibold">☘ Fáilte — you're in the right place.</p>
             <p className="mt-2 text-sm text-muted-foreground">
-              Built by Irish people, for anyone making Perth home.
+              Built by Irish people, for anyone making Brisbane home.
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link to="/categories" className="text-sm font-medium text-primary underline-offset-4 hover:underline">Browse categories</Link>

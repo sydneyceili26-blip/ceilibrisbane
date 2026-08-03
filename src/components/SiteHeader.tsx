@@ -53,7 +53,7 @@ const SiteHeader = () => {
       <div className="container flex h-16 items-center gap-3">
         <Link to="/" className="flex items-center gap-2 font-display text-xl font-bold tracking-tight">
           <img src="/favicon.png" alt="Céilí Brisbane logo - serif C with shamrock" width={36} height={36} className="h-9 w-9 object-contain" />
-          <span><span className="text-primary">Céilí</span> Perth</span>
+          <span><span className="text-primary">Céilí</span> Brisbane</span>
         </Link>
 
         <nav className="ml-6 hidden items-center gap-1 md:flex">

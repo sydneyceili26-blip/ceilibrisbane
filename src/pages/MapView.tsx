@@ -88,7 +88,7 @@ const MapView = () => {
         <section className="container py-8">
           <h1 className="font-display text-3xl font-bold md:text-4xl">Map view</h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            See where listings are around Perth. Pins are placed at suburb level.
+            See where listings are around Brisbane. Pins are placed at suburb level.
           </p>
 
           <div className="mt-5 flex flex-wrap gap-2">

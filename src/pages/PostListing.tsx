@@ -243,7 +243,7 @@ const PostListing = () => {
     },
     service: {
       title: "e.g. Two Irish lads with a ute - moves & rubbish runs",
-      description: "What you offer, areas you cover in Perth, rates, availability, insurance/qualifications, and how to book you.",
+      description: "What you offer, areas you cover in Brisbane, rates, availability, insurance/qualifications, and how to book you.",
     },
     event: {
       title: "e.g. Trad session at the Mercantile - Sunday arvo",
@@ -268,7 +268,7 @@ const PostListing = () => {
     description: "When you need to move in, how long you're looking to stay, your budget, preferred area, and any requirements around bond or agent approval.",
   },
   job: {
-    title: "e.g. Experienced chef looking for work in Perth CBD",
+    title: "e.g. Experienced chef looking for work in Brisbane CBD",
     description: "Tell people about yourself - experience, availability, visa type, what kind of role you're after and your preferred area.",
   },
   for_sale: {
