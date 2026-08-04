@@ -92,6 +92,7 @@
 
 @layer base {
   * { @apply border-border; }
+  html, body { overflow-x: hidden; }
   body { @apply bg-background text-foreground font-sans antialiased; }
   h1, h2, h3, h4 { @apply font-display tracking-tight; }
 }
