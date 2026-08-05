@@ -11,6 +11,36 @@ interface Props {
   max?: number;
 }
 
+const MAX_DIMENSION = 2048;
+const MAX_BYTES = 5 * 1024 * 1024;
+
+async function compressImage(file: File): Promise<File> {
+  if (file.size <= MAX_BYTES) return file;
+  return new Promise((resolve) => {
+    const img = new Image();
+    const url = URL.createObjectURL(file);
+    img.onload = () => {
+      URL.revokeObjectURL(url);
+      let { width, height } = img;
+      if (width > MAX_DIMENSION || height > MAX_DIMENSION) {
+        const scale = MAX_DIMENSION / Math.max(width, height);
+        width = Math.round(width * scale);
+        height = Math.round(height * scale);
+      }
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      canvas.getContext("2d")!.drawImage(img, 0, 0, width, height);
+      canvas.toBlob(
+        (blob) => resolve(blob ? new File([blob], file.name, { type: "image/jpeg" }) : file),
+        "image/jpeg",
+        0.82,
+      );
+    };
+    img.src = url;
+  });
+}
+
 const ImageUploader = ({ value, onChange, max = 15 }: Props) => {
   const { user } = useAuth();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -26,9 +56,10 @@ const ImageUploader = ({ value, onChange, max = 15 }: Props) => {
     setUploading(true);
     const folder = user?.id ?? "guest";
     const urls: string[] = [];
-    for (const file of Array.from(files).slice(0, remaining)) {
-      if (file.size > 5 * 1024 * 1024) {
-        toast.error(`${file.name} is over 5MB`);
+    for (let file of Array.from(files).slice(0, remaining)) {
+      file = await compressImage(file);
+      if (file.size > MAX_BYTES) {
+        toast.error(`${file.name} is too large to upload`);
         continue;
       }
       const ext = file.name.split(".").pop() ?? "jpg";
@@ -87,7 +118,7 @@ const ImageUploader = ({ value, onChange, max = 15 }: Props) => {
         className="hidden"
         onChange={(e) => handleFiles(e.target.files)}
       />
-      <p className="text-xs text-muted-foreground">Up to {max} photos · max 5MB each</p>
+      <p className="text-xs text-muted-foreground">Up to {max} photos · large images are compressed automatically</p>
     </div>
   );
 };
