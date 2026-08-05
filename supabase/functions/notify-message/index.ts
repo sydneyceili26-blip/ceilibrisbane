@@ -82,7 +82,7 @@ Deno.serve(async (req) => {
     console.log("6. sender name:", senderName, "listing title:", listingTitle, "sending to:", recipientEmail);
 
     const preview = record.body.length > 300 ? record.body.slice(0, 300) + "…" : record.body;
-    const replyUrl = `https://ceilimelbourne.com/messages/${record.conversation_id}`;
+    const replyUrl = `https://ceilibrisbane.com/messages/${record.conversation_id}`;
 
     const emailPromise = fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -91,20 +91,20 @@ Deno.serve(async (req) => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Céilí Melbourne <noreply@ceilimelbourne.com>",
+        from: "Céilí Brisbane <noreply@ceilibrisbane.com>",
         to: [recipientEmail],
-        subject: `${senderName} sent you a message on Céilí Melbourne`,
+        subject: `${senderName} sent you a message on Céilí Brisbane`,
         headers: {
-          "List-Unsubscribe": `<https://ceilimelbourne.com>`,
+          "List-Unsubscribe": `<https://ceilibrisbane.com>`,
           "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
         },
         html: `
           <div style="font-family:sans-serif;max-width:520px;margin:0 auto;color:#1a1a1a">
             <p style="margin-bottom:8px">Hi there,</p>
-            <p><strong>${senderName}</strong> sent you a message about <strong>${listingTitle}</strong> on Céilí Melbourne:</p>
+            <p><strong>${senderName}</strong> sent you a message about <strong>${listingTitle}</strong> on Céilí Brisbane:</p>
             <blockquote style="border-left:3px solid #2d6a4f;margin:16px 0;padding:12px 16px;background:#f6f9f7;border-radius:0 8px 8px 0;color:#333;white-space:pre-wrap">${preview.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</blockquote>
-            <a href="${replyUrl}" style="display:inline-block;background:#2d6a4f;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:8px">Reply in Céilí Melbourne</a>
-            <p style="color:#999;font-size:12px;margin-top:32px">Céilí Melbourne · <a href="https://ceilimelbourne.com" style="color:#999">ceilimelbourne.com</a></p>
+            <a href="${replyUrl}" style="display:inline-block;background:#2d6a4f;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:8px">Reply in Céilí Brisbane</a>
+            <p style="color:#999;font-size:12px;margin-top:32px">Céilí Brisbane · <a href="https://ceilibrisbane.com" style="color:#999">ceilibrisbane.com</a></p>
           </div>
         `,
       }),

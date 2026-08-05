@@ -35,7 +35,7 @@ async function apnsJwt(teamId: string, keyId: string, key: CryptoKey): Promise<s
 export async function sendApnsPush(
   deviceToken: string,
   payload: PushPayload,
-  bundleId = "com.ceilimelbourne.app"
+  bundleId = "com.ceilibrisbane.app"
 ): Promise<void> {
   const teamId = Deno.env.get("APNS_TEAM_ID");
   const keyId = Deno.env.get("APNS_KEY_ID");

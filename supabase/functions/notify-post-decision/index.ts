@@ -34,7 +34,7 @@ Deno.serve(async (req) => {
     const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
     const SERVICE_ROLE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY")!;
-    const FROM = "Céilí Melbourne <noreply@ceilimelbourne.com>";
+    const FROM = "Céilí Brisbane <noreply@ceilibrisbane.com>";
 
     const admin = createClient(SUPABASE_URL, SERVICE_ROLE, {
       auth: { autoRefreshToken: false, persistSession: false },
@@ -61,25 +61,25 @@ Deno.serve(async (req) => {
     const isApproved = decision === "approved";
 
     const subject = isApproved
-      ? `Your post has been approved — Céilí Melbourne`
-      : `Update on your Céilí Melbourne post`;
+      ? `Your post has been approved — Céilí Brisbane`
+      : `Update on your Céilí Brisbane post`;
 
     const html = isApproved
       ? `<div style="font-family:sans-serif;max-width:520px;margin:0 auto;color:#1a1a1a">
           <p>Hi ${poster},</p>
-          <p>Great news — your post <strong>${safeTitle}</strong> has been <strong style="color:#2d6a4f">approved</strong> and is now live on Céilí Melbourne!</p>
-          <a href="https://ceilimelbourne.com" style="display:inline-block;background:#2d6a4f;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:8px">View on Céilí Melbourne →</a>
+          <p>Great news — your post <strong>${safeTitle}</strong> has been <strong style="color:#2d6a4f">approved</strong> and is now live on Céilí Brisbane!</p>
+          <a href="https://ceilibrisbane.com" style="display:inline-block;background:#2d6a4f;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:8px">View on Céilí Brisbane →</a>
           <br><br>
-          <p>Thanks,<br>The Céilí Melbourne team</p>
-          <p style="color:#999;font-size:12px;margin-top:32px">Céilí Melbourne · <a href="https://ceilimelbourne.com" style="color:#999">ceilimelbourne.com</a></p>
+          <p>Thanks,<br>The Céilí Brisbane team</p>
+          <p style="color:#999;font-size:12px;margin-top:32px">Céilí Brisbane · <a href="https://ceilibrisbane.com" style="color:#999">ceilibrisbane.com</a></p>
         </div>`
       : `<div style="font-family:sans-serif;max-width:520px;margin:0 auto;color:#1a1a1a">
           <p>Hi ${poster},</p>
-          <p>Unfortunately, your post <strong>${safeTitle}</strong> wasn't approved for Céilí Melbourne at this time.</p>
+          <p>Unfortunately, your post <strong>${safeTitle}</strong> wasn't approved for Céilí Brisbane at this time.</p>
           <p>If you have any questions, feel free to reply to this email or resubmit with any changes.</p>
           <br>
-          <p>Thanks,<br>The Céilí Melbourne team</p>
-          <p style="color:#999;font-size:12px;margin-top:32px">Céilí Melbourne · <a href="https://ceilimelbourne.com" style="color:#999">ceilimelbourne.com</a></p>
+          <p>Thanks,<br>The Céilí Brisbane team</p>
+          <p style="color:#999;font-size:12px;margin-top:32px">Céilí Brisbane · <a href="https://ceilibrisbane.com" style="color:#999">ceilibrisbane.com</a></p>
         </div>`;
 
     const emailPromise = fetch("https://api.resend.com/emails", {
@@ -91,7 +91,7 @@ Deno.serve(async (req) => {
         subject,
         html,
         headers: {
-          "List-Unsubscribe": "<https://ceilimelbourne.com>",
+          "List-Unsubscribe": "<https://ceilibrisbane.com>",
           "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
         },
       }),

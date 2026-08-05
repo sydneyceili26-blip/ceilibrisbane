@@ -25,7 +25,7 @@ Deno.serve(async (req) => {
     const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
     const SERVICE_ROLE = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY")!;
-    const FROM = "Céilí Melbourne <noreply@ceilimelbourne.com>";
+    const FROM = "Céilí Brisbane <noreply@ceilibrisbane.com>";
 
     const admin = createClient(SUPABASE_URL, SERVICE_ROLE, {
       auth: { autoRefreshToken: false, persistSession: false },
@@ -50,7 +50,7 @@ Deno.serve(async (req) => {
           subject,
           html,
           headers: {
-            "List-Unsubscribe": "<https://ceilimelbourne.com>",
+            "List-Unsubscribe": "<https://ceilibrisbane.com>",
             "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
           },
         }),
@@ -73,13 +73,13 @@ Deno.serve(async (req) => {
         `New post awaiting approval: ${title}`,
         `<div style="font-family:sans-serif;max-width:520px;margin:0 auto;color:#1a1a1a">
           <p>Hi,</p>
-          <p>A new <strong>${label}</strong> has been submitted on Céilí Melbourne and is awaiting your approval.</p>
+          <p>A new <strong>${label}</strong> has been submitted on Céilí Brisbane and is awaiting your approval.</p>
           <div style="border:1px solid #e5e7eb;border-radius:10px;padding:16px 20px;margin:20px 0;background:#f9fafb">
             <p style="margin:0 0 4px 0;font-size:13px;color:#6b7280">${label} · by ${poster}</p>
             <p style="margin:0;font-size:16px;font-weight:600">${title.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</p>
           </div>
-          <a href="https://ceilimelbourne.com/admin" style="display:inline-block;background:#2d6a4f;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600">Review in admin dashboard</a>
-          <p style="color:#999;font-size:12px;margin-top:32px">Céilí Melbourne · <a href="https://ceilimelbourne.com" style="color:#999">ceilimelbourne.com</a></p>
+          <a href="https://ceilibrisbane.com/admin" style="display:inline-block;background:#2d6a4f;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600">Review in admin dashboard</a>
+          <p style="color:#999;font-size:12px;margin-top:32px">Céilí Brisbane · <a href="https://ceilibrisbane.com" style="color:#999">ceilibrisbane.com</a></p>
         </div>`,
       );
     }
@@ -91,14 +91,14 @@ Deno.serve(async (req) => {
       if (authorEmail) {
         await sendEmail(
           authorEmail,
-          "Your post is under review — Céilí Melbourne",
+          "Your post is under review — Céilí Brisbane",
           `<div style="font-family:sans-serif;max-width:520px;margin:0 auto;color:#1a1a1a">
             <p>Hi ${poster},</p>
-            <p>Thanks for submitting <strong>${title.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</strong> to Céilí Melbourne!</p>
+            <p>Thanks for submitting <strong>${title.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</strong> to Céilí Brisbane!</p>
             <p>Our team will review your post shortly. You'll receive another email once it has been approved or rejected.</p>
             <br>
-            <p>Thanks,<br>The Céilí Melbourne team</p>
-            <p style="color:#999;font-size:12px;margin-top:32px">Céilí Melbourne · <a href="https://ceilimelbourne.com" style="color:#999">ceilimelbourne.com</a></p>
+            <p>Thanks,<br>The Céilí Brisbane team</p>
+            <p style="color:#999;font-size:12px;margin-top:32px">Céilí Brisbane · <a href="https://ceilibrisbane.com" style="color:#999">ceilibrisbane.com</a></p>
           </div>`,
         );
       }

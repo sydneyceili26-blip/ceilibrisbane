@@ -52,16 +52,16 @@ Deno.serve(async (req) => {
       method: "POST",
       headers: { "Content-Type": "application/json", Authorization: `Bearer ${RESEND_API_KEY}` },
       body: JSON.stringify({
-        from: "Céilí Melbourne <noreply@ceilimelbourne.com>",
+        from: "Céilí Brisbane <noreply@ceilibrisbane.com>",
         to: [email],
         subject: `Your listing expires in ${daysLeft} day${daysLeft === 1 ? "" : "s"} — renew now`,
         html: `
           <div style="font-family:sans-serif;max-width:520px;margin:0 auto;color:#1a1a1a">
             <p style="margin-bottom:8px">Hi there,</p>
-            <p>Your listing <strong>${listing.title.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</strong> on Céilí Melbourne expires in <strong>${daysLeft} day${daysLeft === 1 ? "" : "s"}</strong>.</p>
+            <p>Your listing <strong>${listing.title.replace(/</g, "&lt;").replace(/>/g, "&gt;")}</strong> on Céilí Brisbane expires in <strong>${daysLeft} day${daysLeft === 1 ? "" : "s"}</strong>.</p>
             <p style="color:#555">Renew it to keep it visible for another 60 days — it only takes one click.</p>
-            <a href="https://ceilimelbourne.com/my-posts" style="display:inline-block;background:#2d6a4f;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:8px">Renew my listing</a>
-            <p style="color:#999;font-size:12px;margin-top:32px">Céilí Melbourne · <a href="https://ceilimelbourne.com" style="color:#999">ceilimelbourne.com</a></p>
+            <a href="https://ceilibrisbane.com/my-posts" style="display:inline-block;background:#2d6a4f;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:8px">Renew my listing</a>
+            <p style="color:#999;font-size:12px;margin-top:32px">Céilí Brisbane · <a href="https://ceilibrisbane.com" style="color:#999">ceilibrisbane.com</a></p>
           </div>
         `,
       }),
