@@ -26,6 +26,7 @@ import Messages from "./pages/Messages.tsx";
 import Profile from "./pages/Profile.tsx";
 import Terms from "./pages/Terms.tsx";
 import Privacy from "./pages/Privacy.tsx";
+import Support from "./pages/Support.tsx";
 import RequestDetail from "./pages/RequestDetail.tsx";
 import EditRequest from "./pages/EditRequest.tsx";
 import Regional from "./pages/Regional.tsx";
@@ -88,6 +89,7 @@ const App = () => (
             <Route path="/profile" element={<Profile />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/support" element={<Support />} />
             <Route path="/c/:key" element={<Category />} />
             <Route path="/listing/:id" element={<ListingDetail />} />
             <Route path="/request/:id" element={<RequestDetail />} />
