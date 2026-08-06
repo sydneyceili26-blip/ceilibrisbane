@@ -13,6 +13,7 @@ const SiteFooter = () => (
           <Link to="/about" className="hover:text-foreground">About</Link>
           <Link to="/terms" className="hover:text-foreground">Terms</Link>
           <Link to="/privacy" className="hover:text-foreground">Privacy</Link>
+          <Link to="/support" className="hover:text-foreground">Support</Link>
         </nav>
         <p>A welcoming noticeboard for everyone settling into Brisbane - Fáilte, welcome!</p>
       </div>
